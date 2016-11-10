@@ -1,9 +1,9 @@
-FROM fedora
+FROM centos
 
 MAINTAINER Giuseppe Scrivano <gscrivan@redhat.com>
 
-RUN dnf -y install etcd hostname && \
-    dnf clean all
+RUN yum -y install etcd hostname && \
+    yum clean all
 
 COPY etcd-env.sh /usr/bin/etcd-env.sh
 COPY install.sh  /usr/bin/install.sh
