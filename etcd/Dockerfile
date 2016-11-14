@@ -1,6 +1,6 @@
 FROM centos
 
-MAINTAINER Giuseppe Scrivano <gscrivan@redhat.com>
+MAINTAINER The CentOS Project <cloud-ops@centos.org>
 
 RUN yum -y install etcd hostname && \
     yum clean all

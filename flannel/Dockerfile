@@ -1,12 +1,12 @@
-FROM fedora
+FROM centos
 
-MAINTAINER Giuseppe Scrivano <gscrivan@redhat.com>
+MAINTAINER The CentOS Project <cloud-ops@centos.org>
 
 ENV container=docker
 ENV FLANNELD_ETCD_ENDPOINTS="http://127.0.0.1:2379"
 ENV FLANNELD_ETCD_PREFIX="/atomic.io/network"
 
-RUN dnf -y install flannel && dnf clean all
+RUN yum -y install flannel && yum clean all
 
 ADD flanneld-run.sh /usr/bin/
 
