@@ -5,7 +5,7 @@ echo "[Service]" > /etc/systemd/system/docker.service.d/$NAME.conf
 echo "EnvironmentFile=-/run/$NAME/docker" >> /etc/systemd/system/docker.service.d/$NAME.conf
 
 # Ensure this file doesn't already exist.
-rm -f run/flanneld/subnet.env
+rm -f run/flannel/subnet.env
 
 /usr/bin/flanneld &
 child=$!
