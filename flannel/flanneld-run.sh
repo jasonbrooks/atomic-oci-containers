@@ -15,6 +15,6 @@ do
     sleep 0.1
 done
 
-/usr/libexec/flannel/mk-docker-opts.sh -k DOCKER_NETWORK_OPTIONS -d /run/flanneld/docker
+/usr/libexec/flannel/mk-docker-opts.sh -k DOCKER_NETWORK_OPTIONS -d /run/flannel/docker
 
 wait $child
