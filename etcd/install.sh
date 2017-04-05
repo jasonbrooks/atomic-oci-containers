@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Create etcd conf dir
+mkdir -p /etc/etcd && touch /etc/etcd/etcd.conf
+
 # Install systemd unit file for running container
 sed -e "s/TEMPLATE/${NAME}/g" /etc/systemd/system/etcd_container_template.service > ${HOST}/etc/systemd/system/etcd_container_${NAME}.service
 
