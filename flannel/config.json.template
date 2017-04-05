@@ -170,6 +170,16 @@
                                 "rbind",
                                 "rprivate"
                         ]
+        },
+                {
+                        "destination": "/etc/sysconfig/flanneld",
+                        "type": "bind",
+                        "source": "/etc/sysconfig/flanneld",
+                        "options": [
+                                "rw",
+                                "rbind",
+                                "mode=755"
+                        ]
         }
 	],
 	"hooks": {},
