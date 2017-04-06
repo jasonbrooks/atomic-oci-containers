@@ -199,7 +199,7 @@
                                 "rbind",
                                 "rprivate"
                         ]
-        },
+                },
                 {
                         "destination": "/etc/etcd/etcd.conf",
                         "type": "bind",
@@ -207,9 +207,9 @@
                         "options": [
                                 "rw",
                                 "rbind",
-                                "mode=755"
+                                "rprivate"
                         ]
-        }
+                }
 	],
 	"linux": {
 		"resources": {
