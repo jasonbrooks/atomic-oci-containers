@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Create etcd conf dir
-mkdir -p /etc/etcd && touch /etc/etcd/etcd.conf
+#mkdir -p /etc/etcd && touch /etc/etcd/etcd.conf
 
 # put a script to run etcdctl from container in /usr/local/bin
 
