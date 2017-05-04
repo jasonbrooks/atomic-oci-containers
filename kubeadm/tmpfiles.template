@@ -1,0 +1,18 @@
+d /opt/cni/bin - - - - -
+L /opt/cni/bin/bridge - - - - /var/lib/containers/atomic/${NAME}/rootfs/opt/cni/bin/bridge
+L /opt/cni/bin/cnitool - - - - /var/lib/containers/atomic/${NAME}/rootfs/opt/cni/bin/cnitool
+L /opt/cni/bin/dhcp - - - - /var/lib/containers/atomic/${NAME}/rootfs/opt/cni/bin/dhcp
+L /opt/cni/bin/flannel - - - - /var/lib/containers/atomic/${NAME}/rootfs/opt/cni/bin/flannel
+L /opt/cni/bin/host-local - - - - /var/lib/containers/atomic/${NAME}/rootfs/opt/cni/bin/host-local
+L /opt/cni/bin/ipvlan - - - - /var/lib/containers/atomic/${NAME}/rootfs/opt/cni/bin/ipvlan
+L /opt/cni/bin/loopback - - - - /var/lib/containers/atomic/${NAME}/rootfs/opt/cni/bin/loopback
+L /opt/cni/bin/macvlan - - - - /var/lib/containers/atomic/${NAME}/rootfs/opt/cni/bin/macvlan
+L /opt/cni/bin/noop - - - - /var/lib/containers/atomic/${NAME}/rootfs/opt/cni/bin/noop
+L /opt/cni/bin/ptp - - - - /var/lib/containers/atomic/${NAME}/rootfs/opt/cni/bin/ptp
+L /opt/cni/bin/tuning - - - - /var/lib/containers/atomic/${NAME}/rootfs/opt/cni/bin/tuning
+L /usr/local/bin/kubectl - - - - /var/lib/containers/atomic/${NAME}/rootfs/usr/bin/kubectl
+L /usr/local/bin/kubeadm - - - - /var/lib/containers/atomic/${NAME}/rootfs/usr/bin/kubeadm
+d    /etc/systemd/system/kubeadm.service.d - - - - -
+r    /etc/systemd/system/kubeadm.service.d/kubeadm.conf - - - - -
+d    /etc/kubernetes - - - - -
+
