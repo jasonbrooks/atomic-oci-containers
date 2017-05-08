@@ -175,7 +175,27 @@
                                 "rbind",
                                 "rprivate"
                         ]
-        }
+                 },
+                 {
+                        "source": "/etc/sysconfig/flanneld",
+                        "destination": "/etc/sysconfig/flanneld",
+                        "type": "bind",
+                        "options": [
+                                "rw",
+                                "rbind",
+                                "rprivate"
+                        ]
+                 },
+                 {
+                        "source": "/etc/flanneld",
+                        "destination": "/etc/flanneld",
+                        "type": "bind",
+                        "options": [
+                                "rw",
+                                "rbind",
+                                "rprivate"
+                        ]
+                 }
 	],
 	"hooks": {},
 	"linux": {
