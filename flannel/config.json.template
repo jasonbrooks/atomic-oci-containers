@@ -26,31 +26,36 @@
                                 "CAP_AUDIT_WRITE",
                                 "CAP_KILL",
                                 "CAP_NET_BIND_SERVICE",
-                                "CAP_NET_ADMIN"
+                                "CAP_NET_ADMIN",
+                                "CAP_DAC_READ_SEARCH"
                         ],
                         "permitted": [
                                 "CAP_AUDIT_WRITE",
                                 "CAP_KILL",
                                 "CAP_NET_BIND_SERVICE",
-                                "CAP_NET_ADMIN"
+                                "CAP_NET_ADMIN",
+                                "CAP_DAC_READ_SEARCH"
                         ],
                         "inheritable": [
                                 "CAP_AUDIT_WRITE",
                                 "CAP_KILL",
                                 "CAP_NET_BIND_SERVICE",
-                                "CAP_NET_ADMIN"
+                                "CAP_NET_ADMIN",
+                                "CAP_DAC_READ_SEARCH"
                         ],
                         "effective": [
                                 "CAP_AUDIT_WRITE",
                                 "CAP_KILL",
                                 "CAP_NET_BIND_SERVICE",
-                                "CAP_NET_ADMIN"
+                                "CAP_NET_ADMIN",
+                                "CAP_DAC_READ_SEARCH"
                         ],
                         "ambient": [
                                 "CAP_AUDIT_WRITE",
                                 "CAP_KILL",
                                 "CAP_NET_BIND_SERVICE",
-                                "CAP_NET_ADMIN"
+                                "CAP_NET_ADMIN",
+                                "CAP_DAC_READ_SEARCH"
                         ]
                 },
 		"rlimits": [
