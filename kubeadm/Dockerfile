@@ -13,7 +13,7 @@ LABEL BZComponent="$NAME" \
 
 COPY kubernetes.repo /etc/yum.repos.d/
 
-RUN yum install -y docker kubelet kubeadm kubectl kubernetes-cni && yum clean all
+RUN yum install -y docker kubelet kubeadm kubectl kubernetes-cni util-linux && yum clean all 
 
 LABEL RUN /usr/bin/docker run -d --privileged --net=host --pid=host -v /:/rootfs:ro -v /sys:/sys:rw -v /var/run:/var/run:rw -v /run:/run:rw -v /var/lib/docker:/var/lib/docker:rw -v /var/lib/kubelet:/var/lib/kubelet:slave -v /var/log/containers:/var/log/containers:rw
 

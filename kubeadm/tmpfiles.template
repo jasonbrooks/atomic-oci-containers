@@ -15,4 +15,5 @@ L /usr/local/bin/kubeadm - - - - /var/lib/containers/atomic/${NAME}/rootfs/usr/b
 d    /etc/systemd/system/kubeadm.service.d - - - - -
 r    /etc/systemd/system/kubeadm.service.d/kubeadm.conf - - - - -
 d    /etc/kubernetes - - - - -
-
+d    /etc/cni - - - - -
+d    /var/lib/kubelet - - - - -
