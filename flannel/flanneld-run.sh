@@ -7,7 +7,9 @@ echo "EnvironmentFile=-/run/$NAME/docker" >> /etc/systemd/system/docker.service.
 # Ensure this file doesn't already exist.
 rm -f run/flannel/subnet.env
 
-source /etc/sysconfig/flanneld
+if [ -f /etc/sysconfig/flanneld ]; then
+    source /etc/sysconfig/flanneld
+fi
 
 /usr/bin/flanneld -etcd-endpoints=${FLANNEL_ETCD_ENDPOINTS} -etcd-prefix=${FLANNEL_ETCD_PREFIX} $FLANNEL_OPTIONS &
 

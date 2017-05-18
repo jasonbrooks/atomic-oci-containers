@@ -12,9 +12,7 @@ LABEL com.redhat.component="flannel" \
       maintainer="Giuseppe Scrivano <gscrivan@redhat.com>" \
       atomic.type='system'
 
-RUN dnf -y --setopt=tsflags=nodocs install flannel && dnf clean all && \
-mkdir -p /exports/hostfs/etc/flanneld && \
-cp /etc/sysconfig/flanneld /exports/hostfs/etc/sysconfig
+RUN dnf -y --setopt=tsflags=nodocs install flannel && dnf clean all
 
 ADD flanneld-run.sh /usr/bin/
 
