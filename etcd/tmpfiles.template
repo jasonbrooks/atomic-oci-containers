@@ -1,4 +1,3 @@
 d    ${STATE_DIRECTORY}/etcd/${NAME}.etcd   0700 ${HOST_UID} ${HOST_GID} - -
 Z    ${STATE_DIRECTORY}/etcd/${NAME}.etcd   0700 ${HOST_UID} ${HOST_GID} - -
 d    ${RUN_DIRECTORY}/${NAME}               -        -           -       - -
-L    /usr/local/bin/etcdctl - - - - /var/lib/containers/atomic/${NAME}/rootfs/usr/bin/etcdctl
