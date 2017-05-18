@@ -12,7 +12,9 @@ export ETCD_INITIAL_ADVERTISE_PEER_URLS=${ETCD_INITIAL_ADVERTISE_PEER_URLS:-http
 export ETCD_LISTEN_PEER_URLS=${ETCD_LISTEN_PEER_URLS:-http://0.0.0.0:2380,http://0.0.0.0:7001}
 export ETCD_INITIAL_CLUSTER=${ETCD_INITIAL_CLUSTER:-$HOSTNAME=http://${ipaddress}:2380,$HOSTNAME=http://${ipaddress}:7001}
 
-source /etc/etcd/etcd.conf
+if [ -f /etc/etcd/etcd.conf ]; then
+    source /etc/etcd/etcd.conf
+fi
 
 # Execute the commands passed to this script
 exec "$@"

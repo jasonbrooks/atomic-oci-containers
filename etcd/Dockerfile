@@ -10,8 +10,6 @@ LABEL com.redhat.component="etcd" \
       maintainer="Giuseppe Scrivano <gscrivan@redhat.com>"
 
 RUN dnf -y --setopt=tsflags=nodocs install etcd hostname && \
-    mkdir -p /exports/hostfs/etc/etcd && \
-#    cp /etc/etcd/etcd.conf /exports/hostfs/etc/etcd && \
     dnf clean all
 
 LABEL INSTALL /usr/bin/docker run --rm \$OPT1 --privileged -v /:/host -e HOST=/host -e NAME=\$NAME -e IMAGE=\$IMAGE \$IMAGE \$OPT2 /usr/bin/install.sh  \$OPT3
