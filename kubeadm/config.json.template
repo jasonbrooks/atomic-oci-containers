@@ -1,12 +1,21 @@
 {
+    "ociVersion": "1.0.0",
+    "platform": {
+        "os": "linux",
+        "arch": "amd64"
+    },
     "process": {
-        "consoleSize": {
-            "width": 0, 
-            "height": 0
-        }, 
+        "terminal": false,
+        "user": {},
         "args": [
             "/usr/bin/launch.sh"
-        ], 
+        ],
+        "env": [
+            "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+            "TERM=xterm"
+        ],
+        "noNewPrivileges": false,
+        "cwd": "/",
         "capabilities": {
             "bounding": [
                 "CAP_CHOWN",
@@ -46,7 +55,7 @@
                 "CAP_SYSLOG",
                 "CAP_WAKE_ALARM",
                 "CAP_BLOCK_SUSPEND"
-        ],
+            ],
             "permitted": [
                 "CAP_CHOWN",
                 "CAP_DAC_OVERRIDE",
@@ -85,7 +94,7 @@
                 "CAP_SYSLOG",
                 "CAP_WAKE_ALARM",
                 "CAP_BLOCK_SUSPEND"
-        ],
+            ],
             "inheritable": [
                 "CAP_CHOWN",
                 "CAP_DAC_OVERRIDE",
@@ -124,7 +133,7 @@
                 "CAP_SYSLOG",
                 "CAP_WAKE_ALARM",
                 "CAP_BLOCK_SUSPEND"
-        ],
+            ],
             "effective": [
                 "CAP_CHOWN",
                 "CAP_DAC_OVERRIDE",
@@ -163,7 +172,7 @@
                 "CAP_SYSLOG",
                 "CAP_WAKE_ALARM",
                 "CAP_BLOCK_SUSPEND"
-        ],
+            ],
             "ambient": [
                 "CAP_CHOWN",
                 "CAP_DAC_OVERRIDE",
@@ -202,131 +211,91 @@
                 "CAP_SYSLOG",
                 "CAP_WAKE_ALARM",
                 "CAP_BLOCK_SUSPEND"
-        ]
+            ]
         },
-        "terminal": false, 
         "rlimits": [
             {
-                "soft": 1024, 
-                "hard": 1024, 
-                "type": "RLIMIT_NOFILE"
+                "type": "RLIMIT_NOFILE",
+                "hard": 1024,
+                "soft": 1024
             }
-        ], 
-        "user": {},
-        "env": [
-            "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin", 
-            "TERM=xterm"
-        ], 
-        "noNewPrivileges": false, 
-        "cwd": "/"
-    }, 
-    "hooks": {}, 
-    "platform": {
-        "arch": "amd64", 
-        "os": "linux"
-    }, 
-    "linux": {
-        "maskedPaths": [
-            "/proc/kcore", 
-            "/proc/latency_stats", 
-            "/proc/timer_list", 
-            "/proc/timer_stats", 
-            "/proc/sched_debug", 
-            "/sys/firmware"
-        ], 
-        "readonlyPaths": [
-            "/proc/asound", 
-            "/proc/bus", 
-            "/proc/fs", 
-            "/proc/irq", 
-            "/proc/sysrq-trigger"
-        ], 
-        "namespaces": [
-            {
-                "type": "mount"
-            }
-        ], 
-        "resources": {
-            "devices": [
-                {
-                    "access": "rwm", 
-                    "allow": false
-                }
-            ]
-        }
-    }, 
+        ]
+    },
+    "root": {
+        "path": "rootfs",
+        "readonly": true
+    },
     "mounts": [
         {
-            "source": "proc", 
-            "destination": "/proc", 
-            "type": "proc"
-        }, 
+            "destination": "/proc",
+            "type": "proc",
+            "source": "proc"
+        },
         {
-            "source": "tmpfs", 
-            "destination": "/dev", 
-            "type": "tmpfs", 
+            "destination": "/dev",
+            "type": "tmpfs",
+            "source": "tmpfs",
             "options": [
-                "nosuid", 
-                "strictatime", 
-                "mode=755", 
+                "nosuid",
+                "strictatime",
+                "mode=755",
                 "size=65536k"
             ]
-        }, 
+        },
         {
-            "source": "devpts", 
-            "destination": "/dev/pts", 
-            "type": "devpts", 
+            "destination": "/dev/pts",
+            "type": "devpts",
+            "source": "devpts",
             "options": [
-                "nosuid", 
-                "noexec", 
-                "newinstance", 
-                "ptmxmode=0666", 
-                "mode=0620", 
+                "nosuid",
+                "noexec",
+                "newinstance",
+                "ptmxmode=0666",
+                "mode=0620",
                 "gid=5"
             ]
-        }, 
+        },
         {
-            "source": "shm", 
-            "destination": "/dev/shm", 
-            "type": "tmpfs", 
+            "destination": "/dev/shm",
+            "type": "tmpfs",
+            "source": "shm",
             "options": [
-                "nosuid", 
-                "noexec", 
-                "nodev", 
-                "mode=1777", 
+                "nosuid",
+                "noexec",
+                "nodev",
+                "mode=1777",
                 "size=65536k"
             ]
-        }, 
+        },
         {
-            "source": "mqueue", 
-            "destination": "/dev/mqueue", 
-            "type": "mqueue", 
+            "destination": "/dev/mqueue",
+            "type": "mqueue",
+            "source": "mqueue",
             "options": [
-                "nosuid", 
-                "noexec", 
+                "nosuid",
+                "noexec",
                 "nodev"
             ]
-        }, 
+        },
         {
-            "source": "sysfs", 
-            "destination": "/sys", 
-            "type": "sysfs", 
+            "destination": "/sys",
+            "type": "sysfs",
+            "source": "sysfs",
             "options": [
-                "nosuid", 
-                "noexec", 
-                "nodev", 
-                "rw"
+                "nosuid",
+                "noexec",
+                "nodev"
             ]
-        }, 
+        },
         {
-            "source": "cgroup", 
-            "destination": "/sys/fs/cgroup", 
-            "type": "cgroup", 
+            "destination": "/sys/fs/cgroup",
+            "type": "cgroup",
+            "source": "cgroup",
             "options": [
-                "nosuid", 
-                "noexec", 
-                "nodev", 
-                "relatime", 
+                "nosuid",
+                "noexec",
+                "nodev",
+                "relatime",
                 "ro"
             ]
         },
@@ -334,16 +303,6 @@
             "type": "bind",
             "source": "/etc/kubernetes",
             "destination": "/etc/kubernetes",
-            "options": [
-                "rbind",
-                "ro",
-                "rprivate"
-            ]
-         },
-         {
-            "type": "bind",
-            "source": "/etc/cni",
-            "destination": "/etc/cni",
             "options": [
                 "rbind",
                 "ro",
@@ -361,14 +320,14 @@
              ]
           },
           {
-	    "type": "bind",
-	    "source": "/",
-	    "destination": "/rootfs",
-	    "options": [
-		"rbind",
+            "type": "bind",
+            "source": "/",
+            "destination": "/rootfs",
+            "options": [
+                "rbind",
                 "rslave",
-		"ro"
-	     ]
+                "ro"
+             ]
           },
           {
             "type": "bind",
@@ -376,41 +335,40 @@
             "destination": "/var/run/",
             "options": [
                 "rbind",
-                "rprivate",
                 "rw",
                 "mode=755"
              ]
           },
           {
-	    "type": "bind",
-	    "source": "/run",
-	    "destination": "/run",
-	    "options": [
-		"rbind",
-		"rw",
-		"mode=755"
-	     ]
+            "type": "bind",
+            "source": "/run",
+            "destination": "/run",
+            "options": [
+                "rbind",
+                "rw",
+                "mode=755"
+             ]
           },
           {
-	    "type": "bind",
-	    "source": "/var/lib",
-	    "destination": "/var/lib",
-	    "options": [
-		"bind",
-		"rw",
-		"mode=755"
-	     ]
+            "type": "bind",
+            "source": "/var/lib",
+            "destination": "/var/lib",
+            "options": [
+                "bind",
+                "rw",
+                "mode=755"
+             ]
           },
           {
-	    "type": "bind",
-	    "source": "/var/lib/kubelet",
-	    "destination": "/var/lib/kubelet",
-	    "options": [
-		"rbind",
-		"rslave",
-		"rw",
-		"mode=755"
-	     ]
+            "type": "bind",
+            "source": "/var/lib/kubelet",
+            "destination": "/var/lib/kubelet",
+            "options": [
+                "rbind",
+                "rslave",
+                "rw",
+                "mode=755"
+             ]
           },
           {
             "type": "bind",
@@ -421,11 +379,34 @@
                 "rw",
                 "mode=755"
              ]
+          },
+          {
+            "type": "bind",
+            "source": "/etc/cni",
+            "destination": "/etc/cni",
+            "options": [
+                "rbind",
+                "ro",
+                "rprivate"
+             ]
           }
-    ], 
-    "ociVersion": "1.0.0-rc2-dev", 
-    "root": {
-        "path": "rootfs", 
-        "readonly": true
+    ],
+    "linux": {
+        "resources": {
+            "devices": [
+                {
+                    "allow": false,
+                    "access": "rwm"
+                }
+            ]
+        },
+        "namespaces": [
+            {
+                "type": "mount"
+            }
+        ],
+        "devices": null,
+        "apparmorProfile": "",
+        "selinuxProcessLabel": ""
     }
 }
