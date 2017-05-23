@@ -392,6 +392,7 @@
           }
     ],
     "linux": {
+        "rootfsPropagation": "rslave",
         "resources": {
             "devices": [
                 {
