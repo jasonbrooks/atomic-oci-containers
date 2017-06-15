@@ -11,7 +11,7 @@ LABEL BZComponent="$NAME" \
         Architecture="$ARCH" \
         atomic.type='system'
 
-RUN dnf update -y && dnf install -y https://kojipkgs.fedoraproject.org//packages/kubernetes/1.6.4/1.fc27/x86_64/kubernetes-kubeadm-1.6.4-1.fc27.x86_64.rpm https://kojipkgs.fedoraproject.org//packages/kubernetes/1.6.4/1.fc27/x86_64/kubernetes-node-1.6.4-1.fc27.x86_64.rpm https://kojipkgs.fedoraproject.org//packages/kubernetes/1.6.4/1.fc27/x86_64/kubernetes-client-1.6.4-1.fc27.x86_64.rpm containernetworking-cni && dnf clean all 
+RUN dnf update -y && dnf install -y kubernetes-kubeadm kubernetes-node kubernetes-client containernetworking-cni && dnf clean all
 
 LABEL RUN /usr/bin/docker run -d --privileged --net=host --pid=host -v /:/rootfs:ro -v /sys:/sys:rw -v /var/run:/var/run:rw -v /run:/run:rw -v /var/lib/docker:/var/lib/docker:rw -v /var/lib/kubelet:/var/lib/kubelet:slave -v /var/log/containers:/var/log/containers:rw
 
