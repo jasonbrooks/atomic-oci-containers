@@ -22,7 +22,8 @@ COPY uninstall.sh /usr/bin/uninstall.sh
 
 COPY tmpfiles.template config.json.template service.template manifest.json /exports/
 
-RUN ln -s /usr/bin/etcdctl /exports/hostfs/usr/local/bin/etcdctl
+RUN mkdir -p /exports/hostfs/usr/local/bin/ && echo "runc exec -- etcd /usr/bin/etcdctl $@" > /exports/hostfs/usr/local/bin/etcdctl && chmod +x /exports/hostfs/usr/local/bin/etcdctl
+RUN mkdir -p /exports/hostfs/etc/etcd && cp /etc/etcd/etcd.conf /exports/hostfs/etc/etcd
 
 EXPOSE 4001 7001 2379 2380
 
