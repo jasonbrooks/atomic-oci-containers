@@ -1,4 +1,4 @@
-FROM registry.fedoraproject.org/fedora:rawhide
+FROM registry.fedoraproject.org/fedora:25
 
 ENV container=docker FLANNELD_ETCD_ENDPOINTS="http://127.0.0.1:2379" FLANNELD_ETCD_PREFIX="/atomic.io/network"
 
@@ -15,6 +15,9 @@ LABEL com.redhat.component="flannel" \
 RUN dnf -y --setopt=tsflags=nodocs install flannel && dnf clean all
 
 ADD flanneld-run.sh /usr/bin/
+
+RUN cp /etc/sysconfig/flanneld /exports/hostfs/etc/sysconfig/flanneld
+RUN mkdir -p /exports/hostfs/etc/flanneld
 
 # System container files
 COPY tmpfiles.template service.template manifest.json \
