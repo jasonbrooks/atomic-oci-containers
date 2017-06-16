@@ -1,4 +1,4 @@
-FROM registry.fedoraproject.org/fedora:rawhide
+FROM registry.fedoraproject.org/fedora:25
 
 ENV VERSION=0.1 RELEASE=10 ARCH=x86_64
 LABEL com.redhat.component="etcd" \
@@ -21,6 +21,8 @@ COPY install.sh  /usr/bin/install.sh
 COPY uninstall.sh /usr/bin/uninstall.sh
 
 COPY tmpfiles.template config.json.template service.template manifest.json /exports/
+
+RUN ln -s /usr/bin/etcdctl /exports/hostfs/usr/local/bin/etcdctl
 
 EXPOSE 4001 7001 2379 2380
 
