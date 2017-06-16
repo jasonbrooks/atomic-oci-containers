@@ -16,7 +16,7 @@ RUN dnf -y --setopt=tsflags=nodocs install flannel && dnf clean all
 
 ADD flanneld-run.sh /usr/bin/
 
-RUN cp /etc/sysconfig/flanneld /exports/hostfs/etc/sysconfig/flanneld
+RUN mkdir -p /exports/hostfs/etc/sysconfig/ && cp /etc/sysconfig/flanneld /exports/hostfs/etc/sysconfig/
 RUN mkdir -p /exports/hostfs/etc/flanneld
 
 # System container files
