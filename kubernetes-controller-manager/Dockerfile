@@ -1,14 +1,14 @@
-FROM kubernetes-master:rawhide
+FROM docker.io/jasonbrooks/kubernetes-master:rawhide
 MAINTAINER "Jason Brooks" <jbrooks@redhat.com>
 
 ENV container=docker
 
 ENV NAME=kubernetes-controller-manager VERSION=0.1 RELEASE=8 ARCH=x86_64
-LABEL bzcomponent="$NAME" \
-        name="$FGC/$NAME" \
-        version="$VERSION" \
-        release="$RELEASE.$DISTTAG" \
-        architecture="$ARCH" \
+LABEL BZComponent="$NAME" \
+        Name="$FGC/$NAME" \
+        Version="$VERSION" \
+        Release="$RELEASE.$DISTTAG" \
+        Architecture="$ARCH" \
         atomic.type='system'
 
 COPY launch.sh /usr/bin/kube-controller-manager-docker.sh

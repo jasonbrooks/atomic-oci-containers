@@ -1,14 +1,14 @@
-FROM kubernetes-node:rawhide
+FROM docker.io/jasonbrooks/kubernetes-node:rawhide
 MAINTAINER "Jason Brooks" <jbrooks@redhat.com>
 
 ENV container=docker
 
 ENV NAME=kubernetes-proxy VERSION=0 RELEASE=8 ARCH=x86_64
-LABEL bzcomponent="$NAME" \
-        name="$FGC/$NAME" \
-        version="$VERSION" \
-        release="$RELEASE.$DISTTAG" \
-        architecture="$ARCH" \
+LABEL BZComponent="$NAME" \
+        Name="$FGC/$NAME" \
+        Version="$VERSION" \
+        Release="$RELEASE.$DISTTAG" \
+        Architecture="$ARCH" \
         atomic.type='system'
 
 RUN dnf install -y iptables conntrack-tools && dnf clean all
