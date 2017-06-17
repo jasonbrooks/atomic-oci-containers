@@ -1,4 +1,4 @@
-FROM registry.fedoraproject.org/fedora:fc25
+FROM registry.fedoraproject.org/fedora:25
 MAINTAINER "Jason Brooks" <jbrooks@redhat.com>
 
 ENV NAME=kubernetes-node VERSION=0 RELEASE=0 ARCH=x86_64
