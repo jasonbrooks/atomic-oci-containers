@@ -1,4 +1,4 @@
-FROM jasonbrooks/kubernetes-master:rawhide
+FROM docker.io/jasonbrooks/kubernetes-master:rawhide
 MAINTAINER "Jason Brooks" <jbrooks@redhat.com>
 
 ENV container=docker
