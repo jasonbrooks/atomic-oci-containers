@@ -1,4 +1,4 @@
-FROM registry.fedoraproject.org/fedora:25
+FROM registry.fedoraproject.org/fedora:rawhide
 
 ENV container=docker FLANNELD_ETCD_ENDPOINTS="http://127.0.0.1:2379" FLANNELD_ETCD_PREFIX="/atomic.io/network"
 
