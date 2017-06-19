@@ -1,4 +1,4 @@
-FROM registry.fedoraproject.org/fedora:25
+FROM registry.fedoraproject.org/fedora:rawhide
 
 ENV VERSION=0.1 RELEASE=10 ARCH=x86_64
 LABEL com.redhat.component="etcd" \
