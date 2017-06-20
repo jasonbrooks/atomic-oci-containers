@@ -2,7 +2,7 @@
     "version": "1.0",
     "defaultValues": {
 	"ETCD_NAME" : "",
-        "ETCD_DATA_DIR" : "/var/lib/etcd/${NAME}.etcd",
+        "ETCD_DATA_DIR" : "/var/lib/etcd/$NAME.etcd",
 	"ETCD_ADVERTISE_CLIENT_URLS" : "",
 	"ETCD_LISTEN_CLIENT_URLS" : "",
 	"ETCD_INITIAL_ADVERTISE_PEER_URLS" : "",
