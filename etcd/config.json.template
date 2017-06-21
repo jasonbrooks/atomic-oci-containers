@@ -178,7 +178,7 @@
 		},
 		{
 			"type": "bind",
-			"source": "${STATE_DIRECTORY}/${NAME}",
+			"source": "${STATE_DIRECTORY}/etcd",
 			"destination": "/var/lib/etcd",
 			"options": [
 				"rbind",
