@@ -208,7 +208,7 @@
                  },
                  {
                          "type": "bind",
-                         "source": "/etc/etcd/",
+                         "source": "$CONF_DIRECTORY/$NAME",
                          "destination": "/etc/etcd/",
                          "options": [
                                  "rbind",

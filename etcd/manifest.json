@@ -1,6 +1,7 @@
 {
     "version": "1.0",
     "defaultValues": {
+        "CONF_DIRECTORY" : "/etc"
 	"ETCD_NAME" : "",
         "ETCD_DATA_DIR" : "",
 	"ETCD_ADVERTISE_CLIENT_URLS" : "",
@@ -39,6 +40,9 @@
 	"ETCD_LOG_PACKAGE_LEVELS" : "",
 	"ETCD_STRICT_RECONFIG_CHECK" : "false",
 	"ETCD_ENABLE_PPROF" : "false"
-    }
+    },
+    "renameFiles" : {
+        "/etc/etcd/etcd.conf" : "$CONF_DIRECTORY/$NAME/etcd.conf"
+    },
 }
 
