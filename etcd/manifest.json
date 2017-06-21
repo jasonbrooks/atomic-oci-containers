@@ -43,6 +43,6 @@
     },
     "renameFiles" : {
         "/etc/etcd/etcd.conf" : "$CONF_DIRECTORY/$NAME/etcd.conf"
-    },
+    }
 }
 
