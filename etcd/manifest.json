@@ -1,7 +1,7 @@
 {
     "version": "1.0",
     "defaultValues": {
-        "CONF_DIRECTORY" : "/etc"
+        "CONF_DIRECTORY" : "/etc",
 	"ETCD_NAME" : "",
         "ETCD_DATA_DIR" : "",
 	"ETCD_ADVERTISE_CLIENT_URLS" : "",
