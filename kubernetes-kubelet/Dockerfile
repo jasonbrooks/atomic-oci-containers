@@ -1,4 +1,4 @@
-FROM docker.io/jasonbrooks/kubernetes-node:rawhide
+FROM docker.io/jasonbrooks/kubernetes-node:stable
 MAINTAINER "Jason Brooks" <jbrooks@redhat.com>
 
 ENV container=docker
