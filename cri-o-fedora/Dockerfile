@@ -1,4 +1,4 @@
-FROM registry.fedoraproject.org/fedora:26
+FROM centos
 
 ENV VERSION=0 RELEASE=1 ARCH=x86_64
 LABEL com.redhat.component="cri-o" \
@@ -11,9 +11,10 @@ LABEL com.redhat.component="cri-o" \
       maintainer="Yu Qi Zhang <jzehrarnyg@gmail.com>" \
       atomic.type="system"
 
-RUN dnf install --setopt=tsflags=nodocs -y iptables cri-o iproute runc && \
+RUN yum-config-manager --nogpgcheck --add-repo https://cbs.centos.org/repos/virt7-container-common-candidate/x86_64/os/ && \
+    yum install --disablerepo=extras --nogpgcheck --setopt=tsflags=nodocs -y iptables cri-o iproute runc && \
     rpm -V iptables cri-o iproute runc && \
-    dnf clean all && \
+    yum clean all && \
     mkdir -p /exports/hostfs/etc/crio /exports/hostfs/opt/cni/bin/ /exports/hostfs/var/lib/containers/storage/ && \
     cp /etc/crio/* /exports/hostfs/etc/crio && \
     if test -e /usr/libexec/cni; then cp -Lr /usr/libexec/cni/* /exports/hostfs/opt/cni/bin/; fi
