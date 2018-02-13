@@ -281,12 +281,11 @@
         },
         {
             "destination": "/sys",
-            "type": "sysfs",
-            "source": "sysfs",
+            "type": "bind",
+            "source": "/sys",
             "options": [
-                "nosuid",
-                "noexec",
-                "nodev"
+                "rbind",
+                "rw"
             ]
         },
         {
